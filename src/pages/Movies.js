@@ -20,7 +20,6 @@ const Movies = () => {
                 console.log(error);
             }
         };
-
         fetchData();
     }, [url]);
     
