@@ -3,7 +3,7 @@ import React from 'react'
 const FilmSelection = () => {
     return (
         <div>
-            <label for="sort">Choisissez votre film</label>
+            <label htmlFor="sort">Choisissez votre film</label>
 
                 <select name="sort" id="pet-select">
                     <option value=""></option>

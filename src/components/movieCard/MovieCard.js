@@ -1,14 +1,14 @@
 import React from 'react';
 import style from './movieCard.module.scss';
 
-const MovieCard = () => {
+const MovieCard = ({movie}) => {
     return (
         <div className={style.card}>
-            <img className={style.cardImage}/>
+            <img className={style.cardImage} src={movie.poster} alt={movie.title}/>
             <div className={style.cardContent}>
-                <h3 className={style.cardTitle}>Titre:</h3>
-                <p><small>Date de sortie:</small></p>
-                <p className={style.cardDesc}>Description:</p>
+                <h3 className={style.cardTitle}>{movie.title}</h3>
+                <p>Date de sortie: {movie.release_date}</p>
+                <p className={style.cardDesc}>{movie.description}</p>
             </div>
         </div>
     )
