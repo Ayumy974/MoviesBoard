@@ -9,6 +9,7 @@ function App() {
     <Router>
       <Navigation />
       <Switch>
+        <Route exact path="/" component={Movies} />
         <Route exact path="/movies" component={Movies} />
         <Route exact path="/movies/:id" component={MovieDetails} />
       </Switch>
