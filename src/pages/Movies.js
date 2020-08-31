@@ -1,6 +1,6 @@
 import React from 'react';
 import FilmSelection from '../components/FilmSelection';
-import MoviesList from '../components/FilmSelection';
+import MoviesList from '../components/MoviesList';
 
 
 
