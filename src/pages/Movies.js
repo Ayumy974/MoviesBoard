@@ -2,7 +2,10 @@ import React from 'react';
 import FilmSelection from '../components/FilmSelection';
 import MoviesList from '../components/FilmSelection';
 
+
+
 const Movies = () => {
+
     return (
         <section>
             <FilmSelection />

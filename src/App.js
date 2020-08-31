@@ -1,9 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navigation from './components/navigation/Navigation';
+import Movies from './pages/Movies';
 
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <Navigation />
+      <Switch>
+        <Route exact path="/" component={Movies} />
+      </Switch>
+    </Router>
   );
 }
 
