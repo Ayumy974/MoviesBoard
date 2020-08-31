@@ -8,7 +8,7 @@ const MovieCard = ({movie}) => {
             <div className={style.cardContent}>
                 <h3 className={style.cardTitle}>{movie.title}</h3>
                 <p>Date de sortie: {movie.release_date}</p>
-                <p className={style.cardDesc}>{movie.description}</p>
+                <p className={style.cardDesc}>Synopsis: {movie.description}</p>
             </div>
         </div>
     )
