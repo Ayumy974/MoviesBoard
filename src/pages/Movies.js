@@ -7,9 +7,7 @@ const Movies = () => {
     const [movies, setMovies] = useState([]);
     
     useEffect(() => {
-        MovieService.getMovies()
-        .then(response => setMovies(response.data))
-        .catch( error => console.log(error))
+        MovieService.getMovies().then(response => setMovies(response.data)).catch( error => console.log(error))
     }, []);
     
     return (
