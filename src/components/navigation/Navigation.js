@@ -14,9 +14,11 @@ const Navigation = () => {
             <Link to='/'>
                 <h1>Movies Board</h1>
             </Link>
-            <Fab color="primary" aria-label="add" style={{position: 'fixed', right: "25px", top: "10px"}}>
-                <AddIcon />
-            </Fab>
+            <Link to='/movie/add'>
+                <Fab color="primary" aria-label="add" style={{ position: 'fixed', right: "25px", top: "10px" }}>
+                    <AddIcon />
+                </Fab>
+            </Link>
         </nav>
     )
 }
