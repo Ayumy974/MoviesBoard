@@ -9,10 +9,14 @@ const MovieCard = ({ movie }) => {
     const handleMouseEnter = () => setDisplay(true);
     const handleMouseLeave = () => setDisplay(false);
 
-    goToMovieDetails = id => history.push(`/movies/${id}`);
+    const goToMovieDetails = id => history.push(`/movies/${id}`);
 
     return (
-        <div onClick={()=> goToMovieDetails(movie.id)} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className={style.card}>
+        <div
+            onClick={() => goToMovieDetails(movie.id)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className={style.card}>
             <img className={style.cardImage} src={movie.poster} alt={movie.title} />
             {display && 
                 <div className={style.cardContent}>
