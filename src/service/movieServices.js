@@ -16,4 +16,14 @@ export default class MovieService {
         .then(response => response.data)
         .catch(error => console.log(error))
     }
+
+    static addMovie(movie) {
+        return axios({
+            'method': 'POST',
+            url: 'http://localhost:3000/movies',
+            body: JSON.stringify(movie),
+        })
+        .then(response => response.data)
+        .catch(error => console.log(error))
+    }
 }

@@ -47,7 +47,7 @@ const MovieDetails = ({ match }) => {
                         ))}
                     </div>
                 </section>
-            ) : ( <h4> Rien</h4>)   
+            ) : ( <h4> Rien à afficher</h4>)   
             }
         </>
     )

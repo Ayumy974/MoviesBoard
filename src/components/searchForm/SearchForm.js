@@ -19,11 +19,11 @@ const SearchForm = () => {
         }),
         onSubmit: async (values) => {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=c02af810400f5deb3c8e1d432b4a9775&language=en-US&query=${values.title}&date=${values.date}&page=1&include_adult=false`)
-                .then(response => {
+            .then(response => {
                     setMovie(response.data.results);
                     console.log(movie)
-                })
-                .catch(error => console.log(error))
+            })
+            .catch(error => console.log(error))
         }
     })
 
@@ -43,7 +43,7 @@ const SearchForm = () => {
                 <button type="submit">OK</button>
             </form>
             {movie ? (
-                <SelectDropdown movie={movie} />
+                <SelectDropdown results={movie} />
             ) : ('')}
         </>
     );
