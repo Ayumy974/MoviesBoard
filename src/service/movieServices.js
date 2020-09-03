@@ -57,4 +57,32 @@ export default class MovieService {
         .then(response => response.data)
         .catch(error => console.log(error))
     }
+
+    static searchMovie(title, category) {
+        console.log(title, category)
+        let queryParams = [];
+        if (title && title !== '') {
+            queryParams.push(`title_like=${title}`);
+        }
+        if (category && category !== '') {
+            queryParams.push(`categories_like=${category}`);
+        }
+        console.log(queryParams)
+
+        return axios({
+            'method': 'GET',
+            'url': `http://localhost:3000/movies?${queryParams.join('&')}`
+        })
+        // .then(response => console.log(response.data))
+        .catch(error => console.log(error))
+    }
+
+    // static searchMovieByCategory(category) {
+    //     return axios({
+    //         'method': 'GET',
+    //         'url': `http://localhost:3000/movies?categories_like=${category}`
+    //     })
+    //     // .then(response => console.log(response.data))
+    //     .catch(error => console.log(error))
+    // }
 }

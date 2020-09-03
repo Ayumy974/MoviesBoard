@@ -32,7 +32,7 @@ const SelectDropdown = ({ results }) => {
                 poster: `https://image.tmdb.org/t/p/w342${response.data.poster_path}`,
                 backdrop: `https://image.tmdb.org/t/p/w342${response.data.backdrop_path}`,
             });
-            console.log(response.data);
+            console.log(response.data, selectMovie.categories);
         })
         .catch((error) => console.log(error));
 

@@ -52,7 +52,7 @@ const MovieForm = ({ selectMovie, similarMovie, actors }) => {
                     Catégories:
                     <ul>
                     {selectMovie.categories.map((cat) => (
-                        <li>{cat.name}</li>
+                        <li>{cat}</li>
                     ))}
                     </ul>
                 </div>
