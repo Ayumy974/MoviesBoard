@@ -5,6 +5,7 @@ export default class Movie {
         release_date,
         categories = [],
         description,
+        img,
         actors = [],
         similar_movies = [],
         id,
@@ -15,6 +16,7 @@ export default class Movie {
         this.release_date = release_date;
         this.categories = categories;
         this.description = description;
+        this.img = img;
         this.actors = actors;
         this.similar_movies = similar_movies;
         this.id = id;

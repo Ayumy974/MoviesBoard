@@ -31,7 +31,7 @@ const SearchForm = () => {
         <>
             <form onSubmit={formik.handleSubmit}>
                 <label htmlFor="title">Titre:</label>
-                <input type="text" name="title" id="title" onChange={formik.handleChange} onBlur={formik.handleBlur}value={formik.values.title}/>
+                <input type="text" name="title" id="title" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.title}/>
                 {formik.touched.title && formik.errors.title ? (
                 <div>{formik.errors.title}</div>
                 ) : null}

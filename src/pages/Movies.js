@@ -9,11 +9,19 @@ const Movies = () => {
     useEffect(() => {
         MovieService.getMovies().then(response => setMovies(response.data)).catch( error => console.log(error))
     }, []);
-    
+
+    const handleDeleteMovie = id => {
+        const newMovies = [...movies];
+        const index = newMovies.findIndex(m => m.id === id);
+        newMovies.splice(index, 1);
+        setMovies(newMovies);
+        MovieService.deleteMovie(id);
+    }
+
     return (
         <section>
             <FilmSelection />
-            <MoviesList movies={movies} />
+            <MoviesList movies={movies} deleteFrontMovie={handleDeleteMovie} />
         </section>
     )
 }

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import style from './movieCard.module.scss';
 import { useHistory } from 'react-router-dom';
+import DeleteButton from '../icons/DeleteButton';
+import style from './movieCard.module.scss';
 
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, deleteFrontMovie }) => {
     const [display, setDisplay] = useState(false);
     const history = useHistory();
     const handleMouseEnter = () => setDisplay(true);
@@ -11,15 +12,17 @@ const MovieCard = ({ movie }) => {
 
     const goToMovieDetails = id => history.push(`/movies/${id}`);
 
-    return (
+        return (
         <div
-            onClick={() => goToMovieDetails(movie.id)}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className={style.card}>
-            <img className={style.cardImage} src={movie.poster} alt={movie.title} />
+            <img
+                onClick={() => goToMovieDetails(movie.id)}
+                className={style.cardImage} src={movie.poster} alt={movie.title} />
             {display && 
                 <div className={style.cardContent}>
+                <DeleteButton onDeleteMovie={()=>deleteFrontMovie(movie.id)}  />
                     <h3 className={style.cardTitle}>{movie.title}</h3>
                     <p>Date de sortie: {movie.release_date}</p>
                     <p className={style.cardDesc}>Synopsis: {movie.description}</p>
