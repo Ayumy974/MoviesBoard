@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import MovieService from '../../service/movieServices';
-import { Dropdown, Form } from "semantic-ui-react";
+import { Dropdown} from "semantic-ui-react";
 import MovieForm from "../../components/movieForm/MovieForm";
 import axios from "axios";
 
@@ -47,9 +46,6 @@ const SelectDropdown = ({ results }) => {
                     poster: `https://image.tmdb.org/t/p/w342${movie.poster_path}`,
                     release_date: movie.release_date
                 };
-                // newMovie.release_date = movie.release_date;
-                // newMovie.poster = movie.poster_path;
-                // newMovie.title = movie.title;
                 return newMovie;
             });
                 setSm(moviesToSend);
@@ -84,38 +80,20 @@ const SelectDropdown = ({ results }) => {
         };
     });
 
-  // const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     const m = { ...selectMovie };
-  //     console.log(m)
-  //     axios.post('http://localhost:3000/movies',{
-  //         title: m.title,
-  //         release_date: m.release_date,
-  //         categories: [],
-  //         description: m.overview,
-  //         poster: m.backdrop_path,
-  //         backdrop: '',
-  //         actors: [],
-  //         similar_movies: [],
-  //         id: m.id,
-  //     })
-  //     .then(response => console.log(response))
-  //     .catch(error => console.log(error))
-  //     console.log(selectMovie)
-  // }
-
-  return (
-    <div>
-      <Dropdown
-        placeholder="Résultats"
-        fluid
-        selection
-        options={options}
-        onChange={(e, { value }) => setId(value)}
-      />
-      <MovieForm selectMovie={selectMovie} similarMovie={sm} actors={actors} />
-    </div>
-  );
+    return (
+        <section>
+            <Dropdown
+                placeholder="résultats"
+                fluid
+                selection
+                options={options}
+                onChange={(e, { value }) => setId(value)}
+            />
+            {id === '' ? ('') : (
+                <MovieForm selectMovie={selectMovie} similarMovie={sm} actors={actors} />
+            )}
+        </section>
+    );
 };
 
 export default SelectDropdown;
