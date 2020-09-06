@@ -19,7 +19,9 @@ const Movies = () => {
         const fetchMovies = async () => {
                 setLoading(true);
                 MovieService.searchMovie(research.title, research.category).then(response => setMovies(response.data));
-                setLoading(false);       
+            setLoading(false);   
+            // window.scrollTo(window.scrollY, 350);
+            
         }
         fetchMovies();
     }, [research.title, research.category])
@@ -38,7 +40,7 @@ const Movies = () => {
         // scrollToBottom();
 
     }
-    
+
     const handleDeleteMovie = id => {
         const newMovies = [...movies];
         const index = newMovies.findIndex(m => m.id === id);
@@ -47,16 +49,20 @@ const Movies = () => {
         MovieService.deleteMovie(id);
     }
 
-    // const scrollToBottom = () => {
-    //     window.scrollTo(window.scrollY, 600)
-    // }
+    const scrollToSearch = () => {
+        window.scrollTo(window.scrollY, 600);
+        // setResearch({
+        //     title: '',
+        //     category: ''
+        // });
+    }
 
     return (
         <article>
         {/* <div style={{scrollBehavior: 'smooth'}}> */}
             <HomeMovie research={research} onHandleInput={(e)=>handleInput(e)} />
-            <Link to="#moviesList"><button>go to movie list</button></Link>
-            <MoviesList id='moviesList' movies={currentMovies} deleteFrontMovie={handleDeleteMovie} loading={loading} />
+            <button onClick={scrollToSearch}>go to movie list</button>
+            <MoviesList movies={currentMovies} deleteFrontMovie={handleDeleteMovie} loading={loading} />
             <Pagination moviesPerPage={moviesPerPage} totalMovies={movies.length} paginate={paginate} />
             
         </article>
