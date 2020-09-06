@@ -1,3 +1,23 @@
 .navigation {
+    width: 100%;
+    min-height: 10vh;
+    background-color: rgb(139, 131, 124);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    margin: 0 auto;
+    padding: 10px 50px;
     display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    img {
+        display: block;
+    }
+    h1 {
+        transition: all 0.6s ease-in;
+        &:hover {
+            color: #4fc3f7 !important;
+        }
+    }
 }

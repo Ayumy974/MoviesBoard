@@ -1,0 +1,13 @@
+.container {
+    background-color: rgba(139, 131, 124, 0.4);
+    .movies {
+        width: 85%;
+        min-height: 100vh;
+        margin: 0 auto;
+        padding: 100px 0;
+        display: flex;
+        // justify-content: center;
+        flex-wrap: wrap;
+    }
+
+}

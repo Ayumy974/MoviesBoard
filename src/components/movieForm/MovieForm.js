@@ -12,8 +12,8 @@ const MovieForm = ({ selectMovie, similarMovie, actors }) => {
     const a = [...actors];
     
     // Limiter la liste des acteurs à 4:
-    const e = a.length - 4;
-    a.splice(4, e);
+    const e = actors.length - 4;
+    actors.splice(4, e);
     
     // Données du film à envoyer au serveur REST:
     const data = {

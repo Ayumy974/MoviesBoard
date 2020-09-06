@@ -6,8 +6,8 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
         pageNumbers.push(i);
     }
     return (
-        <ul className="pagination">
-            <li className="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <ul className="pagination" style={{textAlign: "center"}}>
+            <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a></li>
 
             {pageNumbers.map(number => (
                 <li key={number} className="waves-effect">
@@ -16,7 +16,7 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
                     </a>
                 </li>
             ))}
-            <li className="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            <li className="disabled"><a href="#!" ><i className="material-icons">chevron_right</i></a></li>
         </ul>
     )
 }

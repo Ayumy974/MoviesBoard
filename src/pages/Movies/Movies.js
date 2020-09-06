@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import MovieService from '../../service/movieServices';
+import HomeMovie from '../../components/home/HomeMovie';
 import MoviesList from '../../components/moviesList/MoviesList';
 import Pagination from '../../components/Pagination';
-import style from './movies.module.scss';
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
-    const [title, setTitle] = useState('');
-    const [category, setCategory] = useState('');
+    const [research, setResearch] = useState({
+        title: '',
+        category: ''
+    })
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [moviesPerPage] = useState(2);
-
+    const [moviesPerPage] = useState(6);
+    
     useEffect(() => {
         const fetchMovies = async () => {
-            setLoading(true);
-            MovieService.searchMovie(title, category).then(response => setMovies(response.data));
-            setLoading(false);
+                setLoading(true);
+                MovieService.searchMovie(research.title, research.category).then(response => setMovies(response.data));
+                setLoading(false);       
         }
         fetchMovies();
-    }, [title, category])
+    }, [research.title, research.category])
     
     // Get current movies
     const indexOfLastMovie = currentPage * moviesPerPage;
@@ -29,6 +31,12 @@ const Movies = () => {
     // Change page
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
+    const handleInput = e => {
+        const { name, value } = e.target;
+        setResearch({ ...research, [name]: value });
+        // scrollToBottom();
+
+    }
     const handleDeleteMovie = id => {
         const newMovies = [...movies];
         const index = newMovies.findIndex(m => m.id === id);
@@ -37,15 +45,18 @@ const Movies = () => {
         MovieService.deleteMovie(id);
     }
 
+    const scrollToBottom = () => {
+        window.scrollTo(window.scrollY, 600)
+    }
+
     return (
-        <section className={style.container}>
-            {/* <label htmlFor="name">Recherche par nom:</label> */}
-            <input color='blue' type="text" id="title" className={style.title} value={title} name="title" onChange={(e)=>setTitle(e.target.value)} placeholder='Recherche par nom' required/>
-            {/* <label htmlFor="name">Recherche par catégorie:</label> */}
-            <input type="text" id="category" className="category" value={category} name="category" onChange={e =>setCategory(e.target.value)} placeholder='Recherche par catégorie' required/>
+        <article>
+        {/* <div style={{scrollBehavior: 'smooth'}}> */}
+            <HomeMovie research={research} onHandleInput={(e)=>handleInput(e)} />
             <MoviesList movies={currentMovies} deleteFrontMovie={handleDeleteMovie} loading={loading} />
             <Pagination moviesPerPage={moviesPerPage} totalMovies={movies.length} paginate={paginate} />
-        </section>
+            
+        </article>
     )
 }
 

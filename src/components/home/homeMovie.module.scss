@@ -1,0 +1,46 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    &#bg {
+        background-image: url('../../assets/watchingMovie.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        align-items: flex-end;
+        background-attachment: fixed;
+        position: relative;
+        top: 0;
+        left: 0;   
+        z-index: 0;    
+        &:after {
+            content:'';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba(31, 33, 29, 0.60);
+        }
+    }
+    .research {
+        z-index: 9;
+        width: 80%;
+        height: 85%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        h2 {
+            text-align: center;
+            color: white;
+            font-family: 'Poppins', sans-serif !important;
+
+        }
+        input[type=text]:focus {
+            border-bottom: 1px solid #4fc3f7 !important;
+            box-shadow: 0 1px 0 0 #4fc3f7 !important;
+            color: white;
+        }
+    }
+}

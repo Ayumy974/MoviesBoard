@@ -16,9 +16,9 @@ export default function DeleteButton({onDeleteMovie}) {
 
     return (
         <div className={classes.root} onClick={onDeleteMovie}>
-        <IconButton aria-label="delete">
-            <DeleteIcon />
-        </IconButton>
+            <IconButton aria-label="delete">
+                <DeleteIcon />
+            </IconButton>
         </div>
     );
 }

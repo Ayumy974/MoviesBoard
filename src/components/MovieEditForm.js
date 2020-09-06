@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import style from './movieEditForm.module.scss';
 
 const MovieEditForm = ({ movie }) => {
     const history = useHistory();
@@ -92,7 +93,7 @@ const MovieEditForm = ({ movie }) => {
 
 
     return (
-            <form onSubmit={(e)=>handleSubmit(e)}>
+            <form className={style.form} onSubmit={(e)=>handleSubmit(e)}>
                 <div className="row">
                     <div className="col s12 m8 offset-m2">
                         <div className="card hoverable"> 
@@ -131,7 +132,7 @@ const MovieEditForm = ({ movie }) => {
                                     {/* Movie description */}
                                     <div className="form-group">
                                             <label htmlFor="description">Description:</label>
-                                            <input type='text' className="form-control" name="description" value={form.description.value} placeholder={movie.description} onChange={(e)=>handleInputChange(e)}></input>
+                                    <textarea className={style.description} type='text' className="form-control" name="description" value={form.description.value} placeholder={movie.description} onChange={(e)=>handleInputChange(e)}></textarea>
                                         {/* error */}
                                         {form.description.error &&
                                         <div className="card-panel red accent-1"> 

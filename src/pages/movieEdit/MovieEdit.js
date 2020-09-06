@@ -9,13 +9,20 @@ const MovieEdit = ({ match }) => {
         MovieService.getMovie(+match.params.id).then(movie => setMovie(movie))
     }, [match.params.id]);
 
+    const styleTitle = {
+        textAlign: 'center',
+        fontFamily: 'Poppins',
+        display: 'block',
+        margin: '3rem',
+        color: "rgba(36, 45, 48, 0.9)"
+    }
     return (
-        <div>
-            <h1>Modification</h1>
+        <article style={{marginTop: '100px'}}>
+            <h2 style={styleTitle}>Ici, il vous suffit juste d'apporter vos modifications :)</h2>
             {movie ? (
                 <MovieEditForm movie={movie} />
             ): (<p>Rien à afficher</p>)}
-        </div>
+        </article>
     )
 }
 

@@ -1,24 +1,65 @@
+
 .card {
-    width: 30%;
-    padding: 1rem;
+    // width: 50rem;
+    min-height: 40rem;
+    font-family: 'Poppins', sans-serif !important;
+    text-align: center;
+    flex: 1 1 25rem;
+    min-height: 40vh;
+    margin: 1rem 3rem;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem 1rem;
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
-    margin-bottom: 2rem;
     background-color: white;
-    .cardContent {
-        p {
-            font-size: 0.875rem;
-        }
-    }
-    .cardImage {
+    .image {
         width: 85%;
         margin: 0 auto;
-        display: block;
     }
-    .cardTitle {
-        margin-bottom: 0.5rem;
-        font-size: 1.2rem;
+    .cardContent{
+        .edition {
+            display: flex;
+            justify-content: center;
+        }
     }
+    .infos{
+        .actors {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 95%;
+            margin: 0 auto;
+            &>ul {
+                width: 20rem;
+                box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+                padding: 2rem 1rem;
+                border-radius: 10px;
+                margin: 0 1rem;
+                li >img {
+                    width: 80%;
+                }
+            }
+        }
+        .similarsMovies{
+            background: rgb(208, 205, 202);
+            width: 95%;
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem 1rem;
+            border-radius: 10px;
+
+            // align-items: ;
+            flex-flow: row wrap;
+
+            img{
+                width: 10rem;
+                margin: 1rem;
+            }
+        }
+    }
+    
 }
 
 
