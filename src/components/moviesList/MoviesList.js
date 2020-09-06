@@ -2,12 +2,12 @@ import React from 'react';
 import MovieCard from '../movieCard/MovieCard';
 import style from './moviesList.module.scss';
 
-const MoviesList = ({ movies, loading, deleteFrontMovie }) => {
+const MoviesList = ({ movies, loading, deleteFrontMovie, id }) => {
     if (loading) {
         return <h2>Loading...</h2>;
     }
     return (
-        <section className={style.container}>
+        <section id={id} className={style.container}>
             <div className={style.movies}>
                 {movies.map(movie => (
                     <MovieCard isShowDetails={false} key={movie.id} movie={movie} movies={movies} loading={loading} deleteFrontMovie={deleteFrontMovie} />    

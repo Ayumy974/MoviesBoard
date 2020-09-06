@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import MovieService from '../../service/movieServices';
 import HomeMovie from '../../components/home/HomeMovie';
 import MoviesList from '../../components/moviesList/MoviesList';
@@ -37,6 +38,7 @@ const Movies = () => {
         // scrollToBottom();
 
     }
+    
     const handleDeleteMovie = id => {
         const newMovies = [...movies];
         const index = newMovies.findIndex(m => m.id === id);
@@ -45,15 +47,16 @@ const Movies = () => {
         MovieService.deleteMovie(id);
     }
 
-    const scrollToBottom = () => {
-        window.scrollTo(window.scrollY, 600)
-    }
+    // const scrollToBottom = () => {
+    //     window.scrollTo(window.scrollY, 600)
+    // }
 
     return (
         <article>
         {/* <div style={{scrollBehavior: 'smooth'}}> */}
             <HomeMovie research={research} onHandleInput={(e)=>handleInput(e)} />
-            <MoviesList movies={currentMovies} deleteFrontMovie={handleDeleteMovie} loading={loading} />
+            <Link to="#moviesList"><button>go to movie list</button></Link>
+            <MoviesList id='moviesList' movies={currentMovies} deleteFrontMovie={handleDeleteMovie} loading={loading} />
             <Pagination moviesPerPage={moviesPerPage} totalMovies={movies.length} paginate={paginate} />
             
         </article>
