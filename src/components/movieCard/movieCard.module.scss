@@ -12,6 +12,12 @@
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
     background-color: white;
+    a {
+        color: black !important;
+        &:hover{
+            color: #1e70bf !important;
+        }
+    }
     .image {
         width: 85%;
         margin: 0 auto;
