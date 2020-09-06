@@ -16,13 +16,13 @@ function App() {
         <ScrollToTop>
         <Switch>
             <Layout>
-                <Route exact path="/" component={Movies} />
-                <Route exact path="/movies" component={Movies} />
+                {/* <Route exact path="/" component={Movies} /> */}
+                {/* <Route exact path="/movies" component={Movies} /> */}
                 <Route  exact path="/movies/edit/:id" component={MovieEdit} />
-                <Route exact path="/movies/:id" component={MovieDetails} />
+                {/* <Route exact path="/movies/:id" component={MovieDetails} /> */}
                 <Route exact path="/movie/add" component={MovieAdd} />
               </Layout>
-            </Switch>
+          </Switch>
         </ScrollToTop>
     </Router>
   );

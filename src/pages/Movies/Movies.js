@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import MovieService from '../../service/movieServices';
 import HomeMovie from '../../components/home/HomeMovie';
 import MoviesList from '../../components/moviesList/MoviesList';
 import Pagination from '../../components/Pagination';
 
-const Movies = () => {
+const Movies = ({ showMessage }) => {
+    console.log(showMessage);
     const [movies, setMovies] = useState([]);
     const [research, setResearch] = useState({
         title: '',
@@ -41,6 +41,7 @@ const Movies = () => {
 
     }
 
+    
     const handleDeleteMovie = id => {
         const newMovies = [...movies];
         const index = newMovies.findIndex(m => m.id === id);
@@ -59,12 +60,9 @@ const Movies = () => {
 
     return (
         <article>
-        {/* <div style={{scrollBehavior: 'smooth'}}> */}
             <HomeMovie research={research} onHandleInput={(e)=>handleInput(e)} />
-            <button onClick={scrollToSearch}>go to movie list</button>
-            <MoviesList movies={currentMovies} deleteFrontMovie={handleDeleteMovie} loading={loading} />
-            <Pagination moviesPerPage={moviesPerPage} totalMovies={movies.length} paginate={paginate} />
-            
+            <MoviesList movies={currentMovies} deleteFrontMovie={handleDeleteMovie} loading={loading} showMessage={showMessage} />
+            <Pagination moviesPerPage={moviesPerPage} totalMovies={movies.length} paginate={paginate} />    
         </article>
     )
 }

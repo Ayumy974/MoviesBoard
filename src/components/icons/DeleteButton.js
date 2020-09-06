@@ -11,11 +11,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function DeleteButton({onDeleteMovie}) {
+export default function DeleteButton({onDeleteMovie, showMessage}) {
     const classes = useStyles();
 
     return (
-        <div className={classes.root} onClick={onDeleteMovie}>
+        <div className={classes.root} onClick={() => { onDeleteMovie(); showMessage();}}>
             <IconButton aria-label="delete">
                 <DeleteIcon />
             </IconButton>

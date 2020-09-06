@@ -5,24 +5,24 @@ import EditButton from '../icons/EditButton';
 import style from './movieCard.module.scss';
 
 
-const MovieCard = ({ movie, deleteFrontMovie, isShowDetails }) => {
+const MovieCard = ({ movie, deleteFrontMovie, isShowDetails, showMessage }) => {
     // const [display, setDisplay] = useState(false);
     const history = useHistory();
     // const handleMouseEnter = () => setDisplay(true);
     // const handleMouseLeave = () => setDisplay(false);
-
-    // const goToMovieDetails = id => history.push(`/movies/${id}`);
+    const e = movie.actors.length - 4;
+    movie.actors.splice(4, e);
+    const goToMovieDetails = id => history.push(`/movies/${id}`);
     const goToMovieEdit = id => history.push(`/movies/edit/${id}`);
-    // onClick={() => goToMovieDetails(movie.id)}
     return (
         // <div className={style.card} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             
-    <section className={style.card}>
-        <Link to={`/movies/${movie.id}`}>
-            <img  className={!isShowDetails ? style.image : ''} src={movie.poster} alt={movie.title} />
+        <section className={style.card}>
+        {/* <Link to={`/movies/${movie.id}`}> */}
+            <img onClick={() => goToMovieDetails(movie.id)} className={!isShowDetails ? style.image : ''} src={movie.poster} alt={movie.title} />
             <div className={style.cardContent}>
                 <div className={style.edition}>
-                    <DeleteButton onDeleteMovie={() => deleteFrontMovie(movie.id)} />
+                    <DeleteButton showMessage={showMessage} onDeleteMovie={() => deleteFrontMovie(movie.id)} />
                     <EditButton onEditMovie={() => goToMovieEdit(movie.id)}/>
                 </div>
                 <hr></hr>
@@ -45,7 +45,8 @@ const MovieCard = ({ movie, deleteFrontMovie, isShowDetails }) => {
                                 <li>Nom: {actor.name}</li>
                                 <li>Rôle: {actor.character}</li>
                             </ul>
-                        ))}
+                        ))
+                        }
                     </div>
                     <div className={style.similarsMovies}>
                         {movie.similar_movies.map(sm => (
@@ -56,7 +57,7 @@ const MovieCard = ({ movie, deleteFrontMovie, isShowDetails }) => {
                     </div>
                 </div>
                 ): ('')}
-            </Link>
+            {/* </Link> */}
         </section>
     )
 }
