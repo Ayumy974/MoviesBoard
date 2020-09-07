@@ -1,5 +1,5 @@
+// *** Composant pagination Home page ***
 import React from 'react';
-import { FormHelperText } from '@material-ui/core';
 
 const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
     const pageNumbers = [];
@@ -7,6 +7,7 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
         pageNumbers.push(i);
     }
 
+    // Styles inline:
     const style = {
         display: 'flex',
         justifyContent: 'center',
@@ -25,7 +26,7 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
             {/* <li className="disabled"><i className="material-icons">chevron_left</i></li> */}
             {pageNumbers.map(number => (
                 <li key={number} className="waves-effect">
-                    <a style={astyle} onClick={() => paginate(number)} className="page-link">
+                    <a style={astyle} href='/' onClick={() => paginate(number)} className="page-link">
                         {number}
                     </a>
                 </li>

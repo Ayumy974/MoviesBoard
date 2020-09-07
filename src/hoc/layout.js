@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import { Route } from "react-router-dom";
-import { BrowserRouter as Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import ScrollToTop from 'react-router-scroll-top';
 
 import Movies from '../pages/Movies/Movies';
 import MovieDetails from '../pages/movieDetails/MovieDetails';
@@ -14,39 +14,22 @@ const Layout = ({children}) => {
 
     const showDeleteMessage = () => setDisplayModal(true);    
     const hideDeleteMessage = () => setDisplayModal(false);    
-    // const path = [
-        // "/",
-        // "/movies",
-        // "/movies/edit/:id",
-        // "/movies/:id",
-        // "/movie/add",
-    // ];
 
     return (
-        <>
-            <Navigation/>
-            <main>
-                <article>
-                    {children}
-                    {/* <Switch> */}
-                        {/* <Route exact path='/'>
-                            <Movies showMessage={showDeleteMessage} />
-                        </Route>  */}
-                        {/* <Route path='/movies/:id'>
-                            <MovieDetails showMessage={showDeleteMessage} />
-                        </Route>  */}
-                    <Route exact path='/' component={(props) => (<Movies {...props} showMessage={showDeleteMessage}/>)}/>
-                    <Route exact path='/movies/:id' component={(props) => (<MovieDetails {...props} showMessage={showDeleteMessage}/>)}/>
-                        
-                    {/* <Route exact path='/movies' render={(props) => <Movies {...props} showMessage={showDeleteMessage}/>}/> */}
-
-                    {/* </Switch> */}
-
-                </article>
-                <DeleteModal showModal={displayModal} hideModal={hideDeleteMessage} />
-            </main>
-            {/* <ButtonScrollTop showBtn={this.state.showBtn} /> */}
-        </>
+        <Router>
+            <ScrollToTop>
+                <Navigation/>
+                <main>
+                    <article>
+                        {children}
+                        <Route exact path='/' component={(props) => (<Movies {...props} showMessage={showDeleteMessage}/>)}/>
+                        <Route exact path='/movies/:id' component={(props) => (<MovieDetails {...props} showMessage={showDeleteMessage}/>)}/>
+                    </article>
+                    <DeleteModal showModal={displayModal} hideModal={hideDeleteMessage} />
+                </main>
+                {/* <ButtonScrollTop showBtn={this.state.showBtn} /> */}
+            </ScrollToTop>       
+        </Router>
     );
 }
 

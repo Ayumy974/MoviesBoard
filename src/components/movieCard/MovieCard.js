@@ -1,18 +1,23 @@
+// *** Composant MovieCard présent dans la page 1 Home et dans la page 2 Détails ***
+
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import DeleteButton from '../icons/DeleteButton';
 import EditButton from '../icons/EditButton';
 import style from './movieCard.module.scss';
-import Movies from '../../pages/Movies/Movies';
-
 
 const MovieCard = ({ movie, deleteFrontMovie, isShowDetails, showMessage }) => {
+    
+    // stockage de l'objet history pour pouvoir accéder à la page de détails du film avec son id
     const history = useHistory();
+
+    // Affichage de 4 acteurs uniquement dans le front
     const e = movie.actors.length - 4;
     movie.actors.splice(4, e);
+
+    // Méthodes pour naviguer dans l'application en se servant du hokk useHistory fourni par la librairie react-router-dom
     const goToMovieDetails = id => history.push(`/movies/${id}`);
     const goToMovieEdit = id => history.push(`/movies/edit/${id}`);
-
 
     return (  
         <section className={style.card}>
@@ -29,6 +34,10 @@ const MovieCard = ({ movie, deleteFrontMovie, isShowDetails, showMessage }) => {
                 <p>Date de sortie: {movie.release_date}</p>
                 <p>Synopsis:<br></br> <small>{movie.description}</small></p>
             </div>
+
+            {/* // *** Pour différencier le rendu en fonction du lieu d'affichage de la movieCard dans l'application ***
+            // Ici si le booléen isShowDetails est affecté à true, alors j'afficherai dans la pge 2 de détails du films, les catégories, les acteurs et les films similaires. */}
+
             {isShowDetails ? (
                 <div className={style.infos}>
                     <ul>Catégories:
@@ -40,12 +49,11 @@ const MovieCard = ({ movie, deleteFrontMovie, isShowDetails, showMessage }) => {
                     <div className={style.actors}>
                         {movie.actors.map(actor => (
                             <ul>
-                                <li><img src={actor.photo} alt={actor.name}></img></li>
-                                <li>Nom: {actor.name}</li>
+                                <li>{actor.photo.endsWith('null') ? ('') : (<img src={actor.photo} alt={actor.name}></img>)}</li>
+                                <li><em>Nom:</em> {actor.name}</li>
                                 <li>Rôle: {actor.character}</li>
                             </ul>
-                        ))
-                        }
+                        ))}
                     </div>
                     <div className={style.similarsMovies}>
                         {movie.similar_movies.map(sm => (
@@ -56,9 +64,8 @@ const MovieCard = ({ movie, deleteFrontMovie, isShowDetails, showMessage }) => {
                     </div>
                 </div>
                 ): ('')}
-            {/* </Link> */}
         </section>
     )
 }
 
-export default MovieCard;
+export default MovieCard

@@ -10,7 +10,7 @@ const MoviesList = ({ movies, loading, deleteFrontMovie, showMessage}) => {
         <section className={style.container}>
             <div className={style.movies}>
                 {movies.map(movie => (
-                    <MovieCard showMessage={showMessage} isShowDetails={false} key={movie.id} movie={movie} movies={movies} loading={loading} deleteFrontMovie={deleteFrontMovie} />    
+                    <MovieCard showMessage={showMessage} isShowDetails={false} key={movie.id} movie={movie} loading={loading} deleteFrontMovie={deleteFrontMovie} />    
                     ))
                 }
             </div>

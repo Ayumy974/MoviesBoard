@@ -1,13 +1,18 @@
+// *** Component de présentation d el'appliaction en page 1 avec les champs de recherche de filsm ***
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // pour la naviagtion, remplace la balise <a>
 import style from './homeMovie.module.scss';
 
-const HomeMovie = ({research, onHandleInput}) => {
+const HomeMovie = ({ research, onHandleInput }) => {
+    // props research: permet de passer au parent Movie les valeurs de mes inputs
+    // props onHandleInput: fonction déclarée dans le composant parent pour mettre à jour mon state avec la valeur des inputs
 
     return (
         <div className={style.container} id={style.bg}>
             <div className={style.research}>
                 <h2>All your movies in One place</h2>
+                    {/* Bouton d'ajout d'un nouveau film qui redirige au clic vers la page d'ajout */}
                     <Link to='/movie/add' style={{ position: 'fixed', right: "25px", top: "80px" }} className="btn-floating btn-large waves-effect waves-light light-blue lighten-2" >
                             <i className="material-icons">add</i>
                     </Link>   

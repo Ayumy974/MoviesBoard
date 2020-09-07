@@ -1,5 +1,8 @@
 // *** Requêtes vers le serveur REST ***
+// Implémentation d'une classe MovieService et de méthodes static
+// Avec l'usage de la méthode static, nous n'avons pas à instancier notre service et nous pouvons utiliser la classe MovieService directement
 
+// Utilisation de la librairie axios pour effectuer les requêtes vers l'API rest
 import axios from 'axios';
 
 export default class MovieService {

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import style from './movieEditForm.module.scss';
@@ -20,11 +20,12 @@ const MovieEditForm = ({ movie }) => {
         setForm({ ...form, ...newField });
     }
 
-    // Validator form:
+
+    // Règles de validation du formulaire:
     const validateForm = () => {
         let newForm = form;
         
-        // Validator url
+        // Validation de l'url: elle doit commencer par "https://image.tmdb.org/t/p/w342/" et finir par jpg sinon cela va générer un message d'erreur
             const start = "https://image.tmdb.org/t/p/w342/";
             const end = "jpg";
             if (!form.image.value.startsWith(start) && !form.image.value.endsWith(end)) {
@@ -36,7 +37,7 @@ const MovieEditForm = ({ movie }) => {
                 newForm = { ...newForm, ...{ image: newField } };
             }
         
-        // Validator title
+        // Validation du titre: il doit correspondre à un patern donné, ici les caractères a-z par exemple et doit être compris en 2 et 10 caractères
         if (!/^[a-zA-Zàéè ]{2,10}$/.test(form.title.value)) {
             const errorMsg = 'Le titre du film est requis (2-10).';
             const newField  = { value: form.title.value, error: errorMsg, isValid: false };
@@ -46,7 +47,7 @@ const MovieEditForm = ({ movie }) => {
             newForm = { ...newForm, ...{title: newField } };
         }
 
-        // Validator date 
+        // Validation de la date: on vérifie juste que la personne a entré une date
         if (!form.date.value) {
             const errorMsg = 'La date est requise.';
             const newField  = { value: form.date.value, error: errorMsg, isValid: false };
@@ -55,7 +56,7 @@ const MovieEditForm = ({ movie }) => {
             const newField = { value: form.date.value, error: '', isValid: true };
             newForm = { ...newForm, ...{date: newField } };
         }
-        // Validator description
+        // Validation de la description: idem que pour le titre
         if (!/^[a-zA-Zàéè ]{3,30}$/.test(form.description.value)) {
             const errorMsg = 'Le synopsis du film est requis (3-30).';
             const newField  = { value: form.description.value, error: errorMsg, isValid: false };
@@ -68,6 +69,7 @@ const MovieEditForm = ({ movie }) => {
         return newForm.image.isValid && newForm.title.isValid && newForm.date.isValid && newForm.description.isValid;
     }
 
+    // A la soumission du formulaire, je vérifie la validité des champs et si le formualire est valide, j'effectue ma requête patch car je souhaite modifier seulement une partie des prorpiétés de mon objet. Je redirigire après vers la page d'accueil grâce au hook useHistory et la méthode push
     const handleSubmit = (e) => {
         e.preventDefault();
         const isFormValid = validateForm();
@@ -79,10 +81,10 @@ const MovieEditForm = ({ movie }) => {
             movie.description = form.description.value;
 
             axios.patch(`http://localhost:3000/movies/${movie.id}`, {
-            poster: form.title.image,
-            title: form.title.value,
-            release_date: form.date.value,
-            description: form.description.value
+                poster: form.title.image,
+                title: form.title.value,
+                release_date: form.date.value,
+                description: form.description.value
             })
             .then((response) => console.log(response))
             .catch((error) => console.log(error));
@@ -140,7 +142,7 @@ const MovieEditForm = ({ movie }) => {
                                     <div className="form-group">
                                         <select>
                                         {movie.categories.map(category => (
-                                            <option value={category}>{category}</option>
+                                            <option key={category} value={category}>{category}</option>
                                             ))}
                                         </select>
                                     </div>
