@@ -1,0 +1,45 @@
+
+    .infos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .actors {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 95%;
+            margin: 20px auto 0;
+            h3 {
+                text-align: center;
+                width: 100%;
+            }
+            &>ul {
+                width: 15rem;
+                box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+                padding: 2rem 1rem;
+                border-radius: 10px;
+                margin: 0 1rem;
+                li > img {
+                    display: block;
+                    width: 80%;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .similarsMovies{
+            background: rgb(208, 205, 202);
+            width: 95%;
+            margin: 50px auto 50px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            flex-flow: row wrap;
+            img{
+                width: 10rem;
+                margin: 1rem;
+            }
+        }
+    }

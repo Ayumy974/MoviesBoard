@@ -1,13 +1,62 @@
-body {
+/* Global styles */
+/*** Style global pour toute l'application ***/ 
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Poppins', sans-serif !important; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Affecter un pourcentage à la font-size pour que par exemple 1rem = 10px */
+html {
+  font-size: 62.5%;
 }
+
+h1 {
+  font-size: 3rem;
+  font-family: 'Poppins', sans-serif !important;
+}
+li,
+input, 
+label,
+p {
+  font-size: 1.4rem;
+}
+h2 {
+  font-size: 2.3rem;
+  font-family: 'Poppins', sans-serif !important;
+}
+h3 {
+  font-size: 2rem;
+  font-weight: normal;
+  font-family: 'Poppins', sans-serif !important;
+}
+h4 {
+  font-size: 1.8rem;
+  font-family: 'Poppins', sans-serif !important;
+}
+h5 {
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif !important;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button[type=submit]{
+  transition: all 0.2s ease-out !important;
+  background: #4fc3f7 !important;
+}
+button[type=submit]:hover {
+        background: rgba(79, 195, 247, 0.5) !important;
+}
+
+textarea {
+  color: rgba(36, 45, 48, 0.9);
+  height: 9rem !important;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}
+

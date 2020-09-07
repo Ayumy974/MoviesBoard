@@ -1,0 +1,73 @@
+
+// *** Style du composant MovieCard ***
+// Les styles pouvainet entrer en conflit avec la librairie Materialize (cdn index.html) d'où l'utilisation da l'attribut !important.
+// La propriété flex combine 3 propriétés: grow (facteur d'agrandissement de la taille initiale en cas de redistribution dans l'espace), shrink (facteur de rétrécissement), basis. Cela permet de mieux gérer le responsive.
+.card {
+    // width: 30rem;
+    min-height: 40rem;
+    // font-family: 'Poppins', sans-serif !important;
+    text-align: center;
+    flex: 1 1 25rem;
+    min-height: 40vh;
+    margin: 1rem 2rem;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+    background-color: white;
+    .image {
+        margin: 0 auto;
+        cursor: pointer;
+        img {
+            // &:hover {
+            //     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+            // }
+            width: 85%;
+            // padding: 2rem 1rem;
+            
+        }
+    }
+    .cardContent{
+        // Pour aligner horizontablement les boutons de suppression et d'édition
+        .edition {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    .infos{
+        .actors {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 95%;
+            margin: 0 auto;
+            &>ul {
+                width: 20rem;
+                box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+                padding: 2rem 1rem;
+                border-radius: 10px;
+                margin: 0 1rem;
+                li > img {
+                    width: 80%;
+                }
+            }
+        }
+        .similarsMovies{
+            background: rgb(208, 205, 202);
+            width: 95%;
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            flex-flow: row wrap;
+            img{
+                width: 10rem;
+                margin: 1rem;
+            }
+        }
+    }
+}
+
+

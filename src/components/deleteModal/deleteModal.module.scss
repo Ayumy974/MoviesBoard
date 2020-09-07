@@ -1,0 +1,45 @@
+
+.bg_container {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 71;
+    top: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.8);
+    transition: all 0.4s ease-in;
+    // classe dans mon composant pour rendre visible ma modale si showModal est true
+    &.fadeIn {
+        opacity: 1;
+        visibility: visible;
+    }
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 56;
+        transform: translate(-50%, -50%);
+        background: rgb(208, 205, 202);
+        border-radius: 8px;
+        padding: 0 50px;
+        .banner {
+            .closingCross {
+                width: 35px;
+                position: absolute;
+                z-index: 2;
+                top: 5px;
+                right: 5px;
+                cursor: pointer;
+            }
+            h4 {
+                padding: 50px 0;
+                color: white;
+                text-align: center;
+                font-weight: normal !important;
+
+            }
+        }  
+    }
+}
