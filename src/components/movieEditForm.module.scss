@@ -3,19 +3,19 @@
         color: rgba(36, 45, 48, 0.9);
         font-style: italic;
     }
-    textarea {
-        color: rgba(36, 45, 48, 0.9);
-        height: 9rem !important;
-        padding: 1rem;
-        margin-top: 1rem;
-        border-radius: 1rem;
-    }
+    // textarea {
+    //     color: rgba(36, 45, 48, 0.9);
+    //     height: 9rem !important;
+    //     padding: 1rem;
+    //     margin-top: 1rem;
+    //     border-radius: 1rem;
+    // }
 
-    button[type=submit]{
-        transition: all 0.2s ease-out !important;
-        background: #4fc3f7 !important;
-        &:hover {
-            background: rgba(79, 195, 247, 0.5) !important;
-        }
-    }
+    // button[type=submit]{
+    //     transition: all 0.2s ease-out !important;
+    //     background: #4fc3f7 !important;
+    //     &:hover {
+    //         background: rgba(79, 195, 247, 0.5) !important;
+    //     }
+    // }
 }

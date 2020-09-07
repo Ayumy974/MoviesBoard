@@ -10,6 +10,7 @@
     height: 100%;
     background-color: rgba(0,0,0, 0.8);
     transition: all 0.4s ease-in;
+    // classe dans mon composant pour rendre visible ma modale si showModal est true
     &.fadeIn {
         opacity: 1;
         visibility: visible;

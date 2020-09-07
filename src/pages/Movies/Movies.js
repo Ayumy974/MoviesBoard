@@ -5,7 +5,6 @@ import MoviesList from '../../components/moviesList/MoviesList';
 import Pagination from '../../components/Pagination';
 
 const Movies = ({ showMessage }) => {
-    console.log(showMessage);
     const [movies, setMovies] = useState([]);
     const [research, setResearch] = useState({
         title: '',
@@ -37,25 +36,14 @@ const Movies = ({ showMessage }) => {
     const handleInput = e => {
         const { name, value } = e.target;
         setResearch({ ...research, [name]: value });
-        // scrollToBottom();
-
     }
 
-    
     const handleDeleteMovie = id => {
         const newMovies = [...movies];
         const index = newMovies.findIndex(m => m.id === id);
         newMovies.splice(index, 1);
         setMovies(newMovies);
         MovieService.deleteMovie(id);
-    }
-
-    const scrollToSearch = () => {
-        window.scrollTo(window.scrollY, 600);
-        // setResearch({
-        //     title: '',
-        //     category: ''
-        // });
     }
 
     return (

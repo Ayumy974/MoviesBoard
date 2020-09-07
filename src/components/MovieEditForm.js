@@ -26,7 +26,7 @@ const MovieEditForm = ({ movie }) => {
         
         // Validator url
             const start = "https://image.tmdb.org/t/p/w342/";
-            const end = "png";
+            const end = "jpg";
             if (!form.image.value.startsWith(start) && !form.image.value.endsWith(end)) {
                 const errorMsg = "L'url n'est pas valide";
                 const newField = { value: form.image.value, error: errorMsg, isValid: false };
@@ -90,8 +90,6 @@ const MovieEditForm = ({ movie }) => {
             };
     }
     
-
-
     return (
             <form className={style.form} onSubmit={(e)=>handleSubmit(e)}>
                 <div className="row">

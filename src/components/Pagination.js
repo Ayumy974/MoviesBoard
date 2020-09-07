@@ -1,22 +1,36 @@
 import React from 'react';
+import { FormHelperText } from '@material-ui/core';
 
 const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(totalMovies / moviesPerPage); i++) {
         pageNumbers.push(i);
     }
-    return (
-        <ul className="pagination" style={{textAlign: "center"}}>
-            <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a></li>
 
+    const style = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '1rem 0',
+    }
+
+    const astyle = {
+        fontSize: '1.5rem',
+        borderRadius: '50%',
+        background: '#4fc3f7 ',
+        margin: '0 1rem',
+    }
+    return (
+        <ul style={style} className="pagination">
+            {/* <li className="disabled"><i className="material-icons">chevron_left</i></li> */}
             {pageNumbers.map(number => (
                 <li key={number} className="waves-effect">
-                    <a  onClick={() => paginate(number)} className="page-link">
+                    <a style={astyle} onClick={() => paginate(number)} className="page-link">
                         {number}
                     </a>
                 </li>
             ))}
-            <li className="disabled"><a href="#!" ><i className="material-icons">chevron_right</i></a></li>
+            {/* <li className="disabled"><i className="material-icons">chevron_right</i></li> */}
         </ul>
     )
 }

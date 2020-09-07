@@ -4,12 +4,12 @@ import axios from 'axios';
 
 export default class MovieService {
 
-    static getMovies() {
-        return axios({
-            'method': 'GET',
-            url: 'http://localhost:3000/movies',
-        })
-    }
+    // static getMovies() {
+    //     return axios({
+    //         'method': 'GET',
+    //         url: 'http://localhost:3000/movies',
+    //     })
+    // }
     
     static getMovie(id) {
         return axios({

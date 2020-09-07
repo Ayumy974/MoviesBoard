@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 import DeleteButton from '../icons/DeleteButton';
 import EditButton from '../icons/EditButton';
 import style from './movieCard.module.scss';
+import Movies from '../../pages/Movies/Movies';
 
 
 const MovieCard = ({ movie, deleteFrontMovie, isShowDetails, showMessage }) => {
-    // const [display, setDisplay] = useState(false);
     const history = useHistory();
-    // const handleMouseEnter = () => setDisplay(true);
-    // const handleMouseLeave = () => setDisplay(false);
     const e = movie.actors.length - 4;
     movie.actors.splice(4, e);
     const goToMovieDetails = id => history.push(`/movies/${id}`);
     const goToMovieEdit = id => history.push(`/movies/edit/${id}`);
-    return (
-        // <div className={style.card} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            
+
+
+    return (  
         <section className={style.card}>
-        {/* <Link to={`/movies/${movie.id}`}> */}
-            <img onClick={() => goToMovieDetails(movie.id)} className={!isShowDetails ? style.image : ''} src={movie.poster} alt={movie.title} />
+            <div className={!isShowDetails ? style.image : ''} onClick={() => goToMovieDetails(movie.id)} >
+                <img  src={movie.poster} alt={movie.title} />
+            </div>
             <div className={style.cardContent}>
                 <div className={style.edition}>
                     <DeleteButton showMessage={showMessage} onDeleteMovie={() => deleteFrontMovie(movie.id)} />

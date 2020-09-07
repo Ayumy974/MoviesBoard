@@ -26,12 +26,6 @@ const MovieForm = ({ selectMovie, similarMovie, actors }) => {
         actors: a,
         similar_movies: sm,
     };
-
-    
-    // const handleInputChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setForm({ ...form, [name]: value })
-    // }
     
     
     // Soumission du formulaire: envoi des données du film au serveur REST puis redirection vers la page d'accueil:
@@ -45,60 +39,13 @@ const MovieForm = ({ selectMovie, similarMovie, actors }) => {
 
     return (
         <>
-            {/* <form onSubmit={handleSubmit}>
-                <div className="title">
-                    <label htmlFor="title">Titre:</label> */}
-                    {/* <input type="text" name="title" id="title" value={selectMovie.title} />
-                </div>
-                <div className="date">
-                    <label htmlFor="date">Date de sortie:</label>
-                    <input
-                    type="date"
-                    name="date"
-                    id="date"
-                    value={selectMovie.release_date}
-                    />
-                </div>
-                <textarea className="description" value={selectMovie.description}></textarea>
-                <img src={selectMovie.poster} alt={selectMovie.title} />
-                <div className="categories">
-                    Catégories:
-                    <ul>
-                    {selectMovie.categories.map((cat) => (
-                        <li>{cat}</li>
-                    ))}
-                    </ul>
-                </div>
-                <div className="actors">
-                    Acteurs:
-                    <ul>
-                    {actors.map((a) => (
-                        <li>{a.name}</li>
-                    ))}
-                    </ul>
-                </div>
-                <div className="similar_movies">
-                    Films similaires:
-                    <ul>
-                    {similarMovie.map((sm) => (
-                        <li>Titre: {sm.title}</li>
-                    ))}
-                    </ul>
-                </div>
-                <button type="submit">OK</button>
-            </form> */}
-            {/* <hr></hr> */}
-
-
             <form onSubmit={handleSubmit}>
             <div className="row">
                 <div className="col s12 m8 offset-m2">
                     <div className="card hoverable"> 
                         <div className="card-image">
                             <img src={selectMovie.poster} alt={selectMovie.title} style={{ width: '250px', margin: '0 auto' }} />
-                            <span className="btn-floating halfway-fab waves-effect waves-light">
-                                <i className="material-icons">delete</i>
-                            </span>
+                            <span className="btn-floating halfway-fab waves-effect waves-light"></span>
                         </div>
                         
                         <div className="card-stacked">

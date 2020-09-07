@@ -39,7 +39,7 @@ const SearchForm = () => {
                 {formik.touched.date && formik.errors.date ? (
                 <div>{formik.errors.date}</div>
                 ) : null} */}
-                <button type="submit">OK</button>
+                <button className="btn" type="submit">C'est parti</button>
             </form>
             {movie ? (
                 <SelectDropdown results={movie} />
