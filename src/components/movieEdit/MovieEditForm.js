@@ -58,7 +58,7 @@ const MovieEditForm = ({ movie }) => {
         }
         // Validation de la description: idem que pour le titre
         if (!/^[a-zA-Zàéè ]{3,30}$/.test(form.description.value)) {
-            const errorMsg = 'Le synopsis du film est requis (3-30).';
+            const errorMsg = 'Le champ synopsis doit aussi être modifié (3-30).';
             const newField  = { value: form.description.value, error: errorMsg, isValid: false };
             newForm = { ...newForm, ...{ description: newField } };
         } else {

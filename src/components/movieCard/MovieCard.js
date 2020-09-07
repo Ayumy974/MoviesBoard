@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import DeleteButton from '../icons/DeleteButton';
-import EditButton from '../icons/EditButton';
+import DeleteButton from '../navigation/buttons/DeleteButton';
+import EditButton from '../navigation/buttons/EditButton';
 import style from './movieCard.module.scss';
 
 const MovieCard = ({ movie, deleteFrontMovie, isShowDetails, showMessage }) => {

@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import MovieService from '../../service/movieServices';
-import MovieEditForm from '../../components/MovieEditForm';
+import MovieEditForm from '../../components/movieEdit/MovieEditForm';
 
 const MovieEdit = ({ match }) => {
     const [movie, setMovie] = useState(null);
@@ -11,7 +11,7 @@ const MovieEdit = ({ match }) => {
 
     const styleTitle = {
         textAlign: 'center',
-        fontFamily: 'Poppins',
+        // fontFamily: 'Poppins',
         display: 'block',
         margin: '3rem',
         color: "rgba(36, 45, 48, 0.9)"

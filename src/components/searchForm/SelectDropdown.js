@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Dropdown} from "semantic-ui-react";
-import MovieForm from "../../components/movieForm/MovieForm";
+import MovieAddForm from "../movieAddForm/MovieAddForm";
 import axios from "axios";
 
 const SelectDropdown = ({ results }) => {
@@ -81,16 +81,17 @@ const SelectDropdown = ({ results }) => {
     });
 
     return (
-        <section>
+        <section style={{marginTop: '50px'}}>
+            <h2>Sélectionnez votre choix</h2>
             <Dropdown
-                placeholder="résultats"
+                placeholder=""
                 fluid
                 selection
                 options={options}
                 onChange={(e, { value }) => setId(value)}
             />
             {id === '' ? ('') : (
-                <MovieForm selectMovie={selectMovie} similarMovie={sm} actors={actors} />
+                <MovieAddForm selectMovie={selectMovie} similarMovie={sm} actors={actors} />
             )}
         </section>
     );

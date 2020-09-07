@@ -26,7 +26,7 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
             {/* <li className="disabled"><i className="material-icons">chevron_left</i></li> */}
             {pageNumbers.map(number => (
                 <li key={number} className="waves-effect">
-                    <a style={astyle} href='/' onClick={() => paginate(number)} className="page-link">
+                    <a style={astyle} onClick={() => paginate(number)} className="page-link">
                         {number}
                     </a>
                 </li>

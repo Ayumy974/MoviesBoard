@@ -6,7 +6,6 @@ import Movies from '../pages/Movies/Movies';
 import MovieDetails from '../pages/movieDetails/MovieDetails';
 import Navigation from '../components/navigation/Navigation';
 import DeleteModal from '../components/deleteModal/DeleteModal';
-// import ButtonScrollTop from "./../../components/Navigation/ButtonScrollTop/ButtonScrollTop"
 
 const Layout = ({children}) => {
     
@@ -27,7 +26,6 @@ const Layout = ({children}) => {
                     </article>
                     <DeleteModal showModal={displayModal} hideModal={hideDeleteMessage} />
                 </main>
-                {/* <ButtonScrollTop showBtn={this.state.showBtn} /> */}
             </ScrollToTop>       
         </Router>
     );

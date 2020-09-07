@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: 'Poppins', sans-serif !important; */
 }
 
 /* Affecter un pourcentage à la font-size pour que par exemple 1rem = 10px */
@@ -12,7 +13,8 @@ html {
 }
 
 h1 {
-  font-size: 2.6rem;
+  font-size: 3rem;
+  font-family: 'Poppins', sans-serif !important;
 }
 li,
 input, 
@@ -21,14 +23,17 @@ p {
   font-size: 1.4rem;
 }
 h2 {
-  font-size: 3rem;
+  font-size: 2.3rem;
+  font-family: 'Poppins', sans-serif !important;
 }
 h3 {
   font-size: 2rem;
   font-weight: normal;
+  font-family: 'Poppins', sans-serif !important;
 }
 h4, h5 {
   font-size: 1.8rem;
+  font-family: 'Poppins', sans-serif !important;
 }
 a {
   color: white;
