@@ -4,6 +4,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import DeleteButton from '../navigation/buttons/DeleteButton';
 import EditButton from '../navigation/buttons/EditButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import Fade from '@material-ui/core/Fade';
 import style from './movieCard.module.scss';
 
 const MovieCard = ({ movie, deleteFrontMovie, isShowDetails, showMessage }) => {
@@ -21,9 +23,17 @@ const MovieCard = ({ movie, deleteFrontMovie, isShowDetails, showMessage }) => {
 
     return (  
         <section className={style.card}>
-            <div className={!isShowDetails ? style.image : ''} onClick={() => goToMovieDetails(movie.id)} >
-                <img  src={movie.poster} alt={movie.title} />
-            </div>
+            {!isShowDetails ? (
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title={<h5>Afficher le détail du film</h5>}>
+                    <div className={!isShowDetails ? style.image : ''} onClick={() => goToMovieDetails(movie.id)} >
+                        <img  src={movie.poster} alt={movie.title} />
+                    </div>
+                </Tooltip>
+            ) : (
+                <div className={!isShowDetails ? style.image : ''} onClick={() => goToMovieDetails(movie.id)} >
+                    <img  src={movie.poster} alt={movie.title} />
+                </div>    
+            )}
             <div className={style.cardContent}>
                 <div className={style.edition}>
                     <DeleteButton showMessage={showMessage} onDeleteMovie={() => deleteFrontMovie(movie.id)} />
